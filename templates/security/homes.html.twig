@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+{% block title %} redirect {% endblock %}
+
+{% block sidebar%}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Gozem</title>
+
+    <link rel="canonical" href="{{ asset('css/carousel.css') }}">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('carousel.css') }}" rel="stylesheet">
+  </head>
+  <body>
+    
+<header>
+  <a href="{{ path('after_login_success') }}" class="btn btn-info " id="mod"> Consulter les infos sur les chauffeur connectés </a>
+</header>
+<br>
+
+<div class="row">
+    <div class="col-8">
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+             Tous vos ervice en seul click
+            <span class="badge bg-primary rounded-pill">1</span>
+            
+           </li>
+           <hr>
+            <p>Accédez facilement aux transports, aux achats, au portefeuille ou à d’autres besoins lorsque vous ouvrez l’application.</p>  
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Commandez le véhicule de votre choix
+               <span class="badge bg-primary rounded-pill">2</span>
+            </li>
+              <hr>
+            <p>Appuyez sur un bouton et un chauffeur viendra vous chercher dans un moto-taxi, un tricycle ou une voiture et vous emmènera là où vous voulez aller.</p>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Rechargez votre portefeuille et payez sans espèces
+              <span class="badge bg-primary rounded-pill">3</span>
+            </li>
+            <p>Gagnez du temps, pourquoi s’encombrer de billets ou de monnaie? Rechargez votre portefeuille avec du mobile money facilement et continuez à vous déplacer.</p>
+        </ul>
+    </div>
+    <div class="col-4">
+        <img src="{{ asset('images/taxillage2.svg') }}" alt="Une voiture">
+    </div>
+</div>
+<main>
+
+  <div id="demo" class="carousel slide" data-ride="carousel">
+        <!-- Indicateurs -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <!-- Carrousel -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{ asset('images/carous3.jpg')}}" alt="Carrousel slide 1" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+              <h4>Déplacez-vous simplement</h4>
+              <p> Appuyez sur un bouton et un chauffeur vient vous chercher.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{{ asset('images/carous5.jpg')}}" alt="Carrousel slide 2" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block text-dark">
+              <h2>Votre satisfaction, notre problème</h2>
+              <p>Rechargez votre portefeuille et payez sans espèces .</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{{ asset('images/carous1.jpg')}}" alt="Carrousel slide 3" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+              <h4>Titre de la légende</h4>
+              <p>Légende de la slide n°3.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contrôles -->
+        <a class="carousel-control-prev" href="#demo" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Précédent</span>
+        </a>
+        <a class="carousel-control-next" href="#demo" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Suivant</span>
+        </a>
+      </div>
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+
+    <!-- START THE FEATURETTES -->
+  
+</main>
+
+
+    <script src="{{ asset('jss/bootstrap.bundle.min.js') }}"></script>
+
+{% endblock %}

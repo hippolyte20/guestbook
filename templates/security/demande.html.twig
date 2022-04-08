@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_5_horizontal_layout.html.twig' %}
+
+{% block tile %} choix de voyage {% endblock %}
+
+
+{% block demande %}
+ <style type="text/css">
+            #map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+                height:250px;
+                width:100%;
+            }
+        </style>
+<div id="fond">
+
+<h4>Selection des informations le depart et l'arroivé sur la carte </h4>
+<br>
+{{ form_start(form) }}
+  <div class="row">
+    <div class="col-6">
+    {{ form_row(form.lat, { 'label': 'Latitude 1' }) }}
+    </div>
+     <div class="col-6">
+    {{ form_row(form.lng, { 'label': 'Longitude 1' }) }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+    {{ form_row(form.lat2, { 'label': 'Latitude 2' }) }}
+    </div>
+     <div class="col-6">
+    {{ form_row(form.lng2, { 'label': 'Longitude 2' }) }}
+    </div>
+  </div>
+  
+  {{ form_row(form.transmean) }}
+
+  {{ form_row(form.reserveAt, { 'label': 'Trip date' }) }}
+
+  </br>
+  {{ form_row(form.numconducteur) }}
+  </hr>
+   <div id="map">
+            <!-- Ici s'affichera la carte -->
+        </div>
+
+  <script>
+            let map;
+          function initMap() {
+
+              const map = new google.maps.Map(document.getElementById("map"), {
+                  zoom: 8,
+                  center: { lat: 7.1606400831706125, lng: 2.020855702573403 },
+              });
+
+              const uluru = { lat: 7.1606400831706125, lng: 2.020855702573403 };
+              let marker = new google.maps.Marker({
+                  position: uluru,
+                  map: map,
+                  draggable: true
+              });
+
+              google.maps.event.addListener(marker,'position_changed',
+                  function (){
+                      let lat = marker.position.lat()
+                      let lng = marker.position.lng()
+                      $('#book_form_lat').val(lat)
+                      $('#book_form_lng').val(lng)
+                  })
+
+              google.maps.event.addListener(map,'click',
+              function (event){
+                  pos = event.latLng
+                  marker.setPosition(pos)
+              })
+
+              const benin = { lat: 7.184386998519062, lng: 2.008024739438623 };
+              let position = new google.maps.Marker({
+                  position: benin,
+                  map: map,
+                  draggable: true
+              });
+
+              google.maps.event.addListener(position,'position_changed',
+              function (){
+                  let lat2 = position.position.lat()
+                  let lng2 = position.position.lng()
+                  $('#book_form_lat2').val(lat2)
+                  $('#book_form_lng2').val(lng2)
+              })
+
+              google.maps.event.addListener(map,'click',
+              function (event){
+                  pos = event.latLng
+                  position.setPosition(pos)
+              })
+            }
+          </script>
+          <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" type="text/javascript"></script>
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF0C7B4g3OVgquGj0VLyGVoShNDkScf2E&callback=initMap&v=weekly" async></script>
+
+          
+</div>
+<br>
+    
+  
+
+    <button type="submit" class="btn btn-primary" id="mod">Submit</button>
+{{ form_end(form) }}
+
+
+{% endblock %}

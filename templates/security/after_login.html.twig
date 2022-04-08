@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+{% block title %} redirect {% endblock %}
+
+{% block after_login_sucess %}
+
+    </head>
+    <body>
+        <h1> Hello {{ app.user.firstname }}  </h1>
+            <br>
+             
+        
+        <div class="card-group mb-5">
+            <div class="card">
+                
+                <div class="card-header">Conducteur 1</div>
+                <div class="card-body">
+                    <img src="{{ asset('images/index.png') }}"  alt="Accroche HTML">
+                    <p class="card-text">
+                        
+                        Maitrise bonne <br>
+                        Nombre d'accident : 4 <br>
+                        Accueillant
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <div class="spinner-grow text-success" role="status">
+                    <span class="sr-only">Chargement...</span>
+                   </div>
+               </div>
+            </div>
+
+            <div class="card">
+                
+                <div class="card-header">Conducteur 2</div>
+                <div class="card-body">
+                    <img src="{{ asset('images/index.png') }}"  alt="Accroche HTML">
+                    <p class="card-text">
+                        
+                        Maitrise  moyenne <br>
+                        Nombre d'accident : 4 <br>
+                        Gentil
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <div class="spinner-grow text-warning" role="status">
+                    <span class="sr-only">Chargement...</span>
+                   </div>
+               </div>
+            </div>
+            <div class="card">
+                
+                <div class="card-header">Conducteur 3</div>
+                <div class="card-body">
+                    <img src="{{ asset('images/index.png') }}"  alt="Accroche HTML">
+                    <p class="card-text">
+                        
+                        Maitrise  Excellente <br>
+                        Nombre d'accident : 2 <br>
+                        Un peu repoussant
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <div class="spinner-grow text-danger" role="status">
+                    <span class="sr-only">Chargement...</span>
+                   </div>
+               </div>
+            </div>
+            <div class="card">
+                
+                <div class="card-header">Conducteur 4</div>
+                <div class="card-body">
+                    <img src="{{ asset('images/index.png') }}"  alt="Accroche HTML">
+                    <p class="card-text">
+                        
+                        Maitrise  Bonne <br>
+                        Nombre d'accident : 0 <br>
+                        Un fort caractère
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <div class="spinner-grow text-primary" role="status">
+                    <span class="sr-only">Chargement...</span>
+                   </div>
+               </div>
+            </div>
+            
+        </div>
+        
+
+       <hr>
+            <a href="{{ path('auto_dem') }}" class="btn btn-info " id="mod"> Je fais une Reservation </a>
+             
+
+            
+        
+    <div>
+        <script src="{{ asset('jss/bootstrap.bundle.min.js') }}"></script>
+
+      <script src="{{ asset('jss/cheatsheet.js') }}"></script>
+
+            
+    
+    {% endblock %}

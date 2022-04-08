@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block tile %} {{ app.user.firstname }} {% endblock %}
+
+{% block profile %} 
+
+
+ {% for item in app.flashes('message') %}
+ <div class="alert alert-dismissible alert-success">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>{{ item }}</strong>.
+        </div>
+ {% endfor %}
+{% for commande in commandes %}
+
+<button class="btn btn-primary" type="button" disabled>
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                En attente...
+</button>
+<div class="row">
+  <div class="col-6"><b>Reserver le  :</b></div> 
+  <div class="col-6">{{ commande.reserveAt|date('d-m-Y') }}</div>
+</div>
+<div class="row">
+  <div class="col-6"><b>Mode de deplacement :</b></div>
+  <div class="col-6"> {{ commande.transmean  }}</div>
+</div>
+<div class="row">
+  <div class="col-6"><b>Prix brute de transport :</b></div>
+  <div class="col-6"> {{ commande.price }} fcfa</div>
+</div>
+<div class="row">
+  <div class="col-6"><b>Conducteur selectionné :</b></div>
+  <div class="col-6"> {{ commande.numconducteur }}</div>
+</div>
+<hr>
+<div class="bd-example"> 
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {{ app.user.firstname }} Vous serez notifier effectivement le {{ commande.reserveAt|date('d-m-Y')  }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+
+{% endfor %}
+
+   
+{% endblock %}

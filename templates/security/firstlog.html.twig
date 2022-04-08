@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_5_horizontal_layout.html.twig' %}
+{% block title %} S'inscrire {% endblock %}
+
+{% block registration %}
+{{ form_start(form) }}
+
+    {{ form_row(form.firstname) }}
+
+    {{ form_row(form.email,{'attr': {'placeholder': "Ex:hip@gmail.com"}}) }}
+    
+    {{ form_row(form.password) }}
+
+    {{ form_row(form.confirm_password) }}
+
+    <br />
+    
+    
+    <div class="row">
+                    <div class="col-6">
+                    <button class="btn btn btn-primary float-start" type="submit">
+                        S'inscrire
+                    </button>
+                    </div>
+                    <div class="col-6"> 
+                    <a href="{{ path('security_login') }}" class="btn btn-info float-end"> J'ai déjà un compte ! </a>
+                    </div>
+                </div>
+{{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block title %}Log In!{% endblock %}
+{% block login %}
+{% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+<div class="container">
+     
+    <div class="row">
+        <div class="login-form bg-light mt-4 p-4">
+            <form action="{{ path('security_login') }}" method="post" class="row g-3">
+                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                <div class="col-12">
+                    <label for="username">Email</label>
+                    <input type="email" name="_username" id="username" class="form-control" value="{{ last_username }}" required autofocus>
+                </div>
+                <div class="col-12">
+                    <label for="password">Password</label>
+                    <input type="password" name="_password" id="password" class="form-control" required>
+                </div>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                   <fieldset>
+                        <legend class="mt-4">Remenbrance</legend>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="_remember_me">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Se rappeler de moi</label>
+                        </div>
+                   <fieldset>
+
+                
+
+                <input type="hidden" name="_target_path" value="{{ path('after_login_success') }}"/>
+                <div class="row">
+                    <div class="col-6">
+                    <button class="btn btn-lg btn-primary float-end" type="submit">
+                        Sign in
+                    </button>
+                    </div>
+                    <div class="col-6"> 
+                    <input type="hidden" name="_failure_path" value="{{ path('app_forgot_password_request') }}"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
